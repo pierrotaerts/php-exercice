@@ -198,7 +198,7 @@ function ChangeEdit($data, $id)
         $query->bindValue(':id', $id);
         $query->execute();
     }
-    catch(PDOException $e)
+    catch (PDOException $e)
     {
         echo 'Error: ' . $e->getMessage();
         die;
