@@ -86,14 +86,10 @@ function Page_Add():void
         $str .= '</form><br>';
 
         echo $str;
-
-        die;
     }
     else if ($_SERVER['REQUEST_METHOD'] === 'POST')
     {
-        Save($db, TABLE_PLANT,  $_POST);
-        echo 'Save';
-        die;
+        header('Location: ' . BASE_PATH);
     }
 }
 
@@ -175,7 +171,6 @@ function ShowEditForm($id)
     $str .= '<input type="submit" value="Save" />';
     $str .= '</form>';
     echo $str;
-    die;
 }
 
 function ChangeEdit($data, $id)
@@ -209,7 +204,6 @@ function ChangeEdit($data, $id)
         die;
     }
 }
-
 
 function GenerateTable($results):void
 {
