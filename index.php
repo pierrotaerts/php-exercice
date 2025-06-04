@@ -1,4 +1,3 @@
-
 <?php
 
 require_once('connect.php');
@@ -46,6 +45,8 @@ function Page_Home():void
     global $db;
     $results = FetchAll($db, TABLE_PLANT);
     GenerateTable($results);
+
+    echo '<a href="' . BASE_PATH . 'add' . '">Add</a>';
 }
 
 function Page_Add():void
@@ -89,6 +90,7 @@ function Page_Add():void
     }
     else if ($_SERVER['REQUEST_METHOD'] === 'POST')
     {
+        Save($db, TABLE_PLANT, $_POST);
         header('Location: ' . BASE_PATH);
     }
 }
